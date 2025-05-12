@@ -1,0 +1,14 @@
+<div style="font-family:Inter, sans-serif; padding:16px;">
+  <label style="display:block; margin-bottom:8px;">
+    Starting number:
+    <input id="start" type="number" min="0" value="1" style="width:100%; margin-top:4px;" />
+  </label>
+  <button id="go" style="padding:6px 12px;">Apply</button>
+  <script>
+    const startInput = document.getElementById('start');
+    document.getElementById('go').onclick = () => {
+      const val = parseInt(startInput.value, 10);
+      parent.postMessage({ pluginMessage: { type: 'apply', value: isNaN(val) ? 1 : val } }, '*');
+    };
+  </script>
+</div>
